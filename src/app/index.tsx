@@ -15,7 +15,8 @@ export default function Index() {
     { id: "ex10", title: "Ex10 : Fullscreen Flex" },
     { id: "ex11", title: "Ex11 : Flex Split" },
     { id: "ex12", title: "Ex12 : Flex Portion" },
-    { id: "extra", title: "Extra : Challenge Quiz" },
+    { id: "extra", title: "Extra : Challenge Quiz 1 (Slide 72)" },
+    { id: "extra2", title: "Extra 2 : Challenge Quiz 2 (Slide 73)" },
   ];
 
   return (
