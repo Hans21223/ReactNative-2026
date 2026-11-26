@@ -36,6 +36,13 @@ export default function Index() {
     <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
       <Text style={styles.title}>Edit app/index.tsx to edit this screen. Kan</Text>
 
+      <Text style={styles.subtitle}>Travel App (Merged Week 3 + Paper)</Text>
+      <View style={[styles.list, { marginBottom: 24 }]}>
+        <Link href="/travel-app" style={[styles.link, styles.appLink]}>
+          <Text style={styles.linkText}>Open WanderStay Travel App</Text>
+        </Link>
+      </View>
+
       <Text style={styles.subtitle}>Week 3 : Components and Props</Text>
       <View style={styles.list}>
         {week3Screens.map((item) => (
@@ -101,6 +108,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
+  },
+  appLink: {
+    backgroundColor: "#E5634D",
   },
   week3Link: {
     backgroundColor: "#FF7043",
