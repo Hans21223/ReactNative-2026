@@ -1,8 +1,8 @@
-import { Link } from "expo-router";
+import { Link, type Href } from "expo-router";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
-  const exercises = [
+  const week2Exercises = [
     { id: "ex01", title: "Ex01 : Horizontal Stretch" },
     { id: "ex02", title: "Ex02 : Vertical Stretch" },
     { id: "ex03", title: "Ex03 : Horizontal Stacking Items" },
@@ -19,14 +19,45 @@ export default function Index() {
     { id: "extra2", title: "Extra 2 : Challenge Quiz 2 (Slide 73)" },
   ];
 
+  const week3Screens: { href: Href; title: string }[] = [
+    { href: "/test-components", title: "Test Components" },
+    { href: "/test-greeting", title: "Test Greeting" },
+    { href: "/travel", title: "Travel (Ex 1 - Ex 4)" },
+    { href: "/resort", title: "Resort (Quiz Section 1-8)" },
+    { href: "/review", title: "Reviews (Extra Challenge)" },
+  ];
+
+  const paperScreens: { href: Href; title: string }[] = [
+    { href: "/test-paper", title: "Test Paper (React Native Paper)" },
+    { href: "/paper-quiz", title: "Paper Quiz (Resort)" },
+  ];
+
   return (
     <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
       <Text style={styles.title}>Edit app/index.tsx to edit this screen. Kan</Text>
-      <Text style={styles.subtitle}>React Native Flexbox Exercises</Text>
 
+      <Text style={styles.subtitle}>Week 3 : Components and Props</Text>
       <View style={styles.list}>
-        {exercises.map((ex) => (
-          <Link key={ex.id} href={`/flexbox/${ex.id}` as any} style={styles.link}>
+        {week3Screens.map((item) => (
+          <Link key={String(item.href)} href={item.href} style={[styles.link, styles.week3Link]}>
+            <Text style={styles.linkText}>{item.title}</Text>
+          </Link>
+        ))}
+      </View>
+
+      <Text style={[styles.subtitle, { marginTop: 24 }]}>React Native Paper</Text>
+      <View style={styles.list}>
+        {paperScreens.map((item) => (
+          <Link key={String(item.href)} href={item.href} style={[styles.link, styles.paperLink]}>
+            <Text style={styles.linkText}>{item.title}</Text>
+          </Link>
+        ))}
+      </View>
+
+      <Text style={[styles.subtitle, { marginTop: 24 }]}>Week 2 : Flexbox Exercises</Text>
+      <View style={styles.list}>
+        {week2Exercises.map((ex) => (
+          <Link key={ex.id} href={`/flexbox/${ex.id}` as Href} style={styles.link}>
             <Text style={styles.linkText}>{ex.title}</Text>
           </Link>
         ))}
@@ -50,13 +81,13 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#333",
     textAlign: "center",
-    marginBottom: 6,
+    marginBottom: 12,
   },
   subtitle: {
     fontSize: 14,
     color: "#666",
     textAlign: "center",
-    marginBottom: 20,
+    marginBottom: 12,
   },
   list: {
     width: "100%",
@@ -70,6 +101,12 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
+  },
+  week3Link: {
+    backgroundColor: "#FF7043",
+  },
+  paperLink: {
+    backgroundColor: "#7E57C2",
   },
   secondaryLink: {
     backgroundColor: "#78909C",
